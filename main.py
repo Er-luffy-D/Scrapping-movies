@@ -20,4 +20,10 @@ soup = BeautifulSoup(response.text, 'html.parser')
 movies = []
 for row in soup.select("ul.ipc-metadata-list li"):
     title = row.find("div", class_="sc-b189961a-0").find('a').get_text()
-    print(title)
+    year = row.find("div", class_="sc-b189961a-0").find(
+        "span", class_="sc-b189961a-8").get_text()
+    print(title, " and ", year)
+    print()
+    # summary = row.find(
+    #     "div", class_="ipc-metadata-list-summary-item__tc")
+    # print(summary)
